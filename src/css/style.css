@@ -1,0 +1,19 @@
+body{
+    height: 100dvh;
+    display: flex;
+}
+
+.wikiframe{
+    height: 100%;
+    width: 70%;
+}
+
+.wiki{
+    width: 100%;
+    height: 100%;
+}
+
+.gameframe{
+    height: 100%;
+    width: 30%;
+}
