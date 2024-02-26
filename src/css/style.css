@@ -1,11 +1,27 @@
+* { 
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body{
+    position: relative;
     height: 100dvh;
     display: flex;
+
 }
 
 .wikiframe{
     height: 100%;
     width: 70%;
+}
+
+.hiddenframe{
+    position: absolute !important;
+    height: 100%;
+    width: 100%;
+
+    background-color: white;
 }
 
 .wiki{
