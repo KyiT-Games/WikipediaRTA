@@ -39,15 +39,19 @@ function displayOnOff(onoff) { //hiddenframeの表示/非表示を切り替え�
 }
 
 document.getElementById("myBtn").addEventListener("click", function() {
-    $(".titleframe").css("display", "none");
-    
+    displayOnOff(true);
+    $(".titleframe").css("display", "none");  
+
     wikiFetch().then(article => { //then節の中に2つ読み込まれてから実行される
       console.log(article);
       wikiLoad(article[0]).then(articlehtml => {  //記事が読み込まれてから実行される。
         console.log(articlehtml);
-        var iframe = document.getElementById('target');
+
+        
+
         $(".wikiframe").css("display", "block");
         $(".gameframe").css("display", "block");
+        displayOnOff(false);
 
       });
 
