@@ -49,20 +49,20 @@ const wikiLoad = async (articleid) => {
 function displayOnOff(onoff) {
   //hiddenframeの表示/非表示を切り替える
   if (onoff == true) {
-    $(".hiddenframe").css("display", "none");
-  } else {
     $(".hiddenframe").css("display", "block");
+  } else {
+    $(".hiddenframe").css("display", "none");
   }
 }
 
 document.getElementById("myBtn").addEventListener("click", function() {
     displayOnOff(true);
+    $(".titleframe").css("display", "none");
+    wikiFetch().then(article => { //then節の中に2つ読み込まれてから実行される
+      console.log(article[0]);
+      console.log(article[1]);
 
-    wikiFetch().then(article,title => { //then節の中に2つ読み込まれてから実行される
-      console.log(article);
-      console.log(title);
-
-      wikiLoad(article[0]).then(articlehtml => {  //記事が読み込まれてから実行される。
+      wikiLoad(article[0][0]).then(articlehtml => {  //記事が読み込まれてから実行される。
         console.log(articlehtml);
         $(".wikiframe").css("display", "block");
         $(".gameframe").css("display", "block");
