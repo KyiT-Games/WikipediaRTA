@@ -1,3 +1,5 @@
+//諸々の初期化、要素の取得
+
 const wikiFetch = async () => {
   //asyncで非同期処理だと宣言する 2個のページを得る。
   const fetchValue = fetch(
@@ -42,7 +44,14 @@ const wikiLoad = async (articleid) => {
     });
 
   const valueJson = await fetchValue; //非同期処理を実行
-  const articles = valueJson.parse.text; //取得したデータを配列に格��
+  const articles = valueJson.parse.text["*"]; //取得したデータを配列に格��
+
+  const wikiFrame = document.getElementById('wiki');
+  const target = wikiFrame.contentWindow.document.querySelector('#anker');  
+
+  console.log(articles);
+  target.insertAdjacentHTML("afterend", articles);
+
   return articles; //必要な情報が入っている配列を取得
 };
 

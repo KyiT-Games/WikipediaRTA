@@ -23,13 +23,12 @@ body{
 
     background-color: white;
 }
-
-.wiki{
-    width: 100%;
-    height: 100%;
-}
-
 .gameframe{
     height: 100%;
     width: 30%;
+}
+
+#wiki{
+    width: 100%;
+    height: 95%;
 }
