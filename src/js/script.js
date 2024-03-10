@@ -27,6 +27,8 @@ const wikiFetch = async () => {
 
 //articleidに指定されたウィキのページを取ってくる
 const wikiLoad = async (articleid,title) => {
+  document.getElementById('wiki').contentWindow.location.reload(true);
+
   //asyncで非同期処理だと宣言する
   const fetchValue = fetch(
     `https://ja.wikipedia.org/w/api.php?action=parse&pageid=${articleid}&format=json&origin=*`,
@@ -80,9 +82,9 @@ const wikiLoad = async (articleid,title) => {
 function displayOnOff(onoff) {
   //hiddenframeの表示/非表示を切り替える
   if (onoff == true) {
-    $(".hiddenframe").css("display", "block");
+    $("#hiddenframe").css("display", "block");
   } else {
-    $(".hiddenframe").css("display", "none");
+    $("#hiddenframe").css("display", "none");
   }
 }
 
@@ -95,17 +97,18 @@ window.addEventListener("message", (response) => {
   });
 });
 
-document.getElementById("myBtn").addEventListener("click", function() {
+document.getElementById("tBtn").addEventListener("click", function() {
     displayOnOff(true);
-    $(".titleframe").css("display", "none");
+    $("#titleframe").css("display", "none");
     wikiFetch().then(article => { //then節の中に2つ読み込まれてから実行される
       console.log(article[0]);
       console.log(article[1]);
 
       wikiLoad(article[0][0],true).then(articlehtml => {  //記事が読み込まれてから実行される。
         console.log(articlehtml);
-        $(".wikiframe").css("display", "block");
-        $(".gameframe").css("display", "block");
+        $("#gameframe").css("display", "flex");
+        $("#wikiframe").css("display", "block");
+        $("#dataframe").css("display", "block");
         displayOnOff(false);
 
       });

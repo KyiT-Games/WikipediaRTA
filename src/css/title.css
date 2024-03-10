@@ -1,0 +1,49 @@
+#titleframe {
+    position:relative;
+    height: 100%;
+    width: 100%;
+
+    background-color: #c9c9c9;
+}
+
+#tLogo{
+    position: absolute;          /* 位置指定 */
+    top: 40%;                    /* 親要素の半分下にずらす */
+    left: 50%;                   /* 親要素の半分右にずらす */
+    transform: translateY(-50%) translateX(-50%);    /* 要素自体の半分、上と左にずらす */
+
+    width: 50vw;
+    height: auto;
+}
+
+#titleframe::before{
+    position: absolute;
+    content: "";
+    width: 80vw;
+    height: 80vh;
+    background-color: #ffffff;
+    top: 50%;                    /* 親要素の半分下にずらす */
+    left: 50%;                   /* 親要素の半分右にずらす */
+    transform: translateY(-50%) translateX(-50%);    /* 要素自体の半分、上と左にずらす */
+    border-radius: 50px 50px 50px 50px;
+}
+
+
+#tBtn{
+    position: absolute;          /* 位置指定 */
+    top: 80%;                    /* 親要素の半分下にずらす */
+    left: 50%;                   /* 親要素の半分右にずらす */
+    transform: translateY(-50%) translateX(-50%);    /* 要素自体の半分、上と左にずらす */
+
+
+}
+
+#tkLogo{
+    position: absolute;          /* 位置指定 */
+    bottom: 1%;                    /* ��要素の半分下にずらす */
+    left: 1%;                   /* ��要素の半分右にずらす */
+    /* transform: translateY(-50%) translateX(-50%);    要素自体の半分、上と左にずらす */
+    width: 20vw;
+    height: auto;
+}
+

@@ -5,22 +5,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wiki Runner</title>
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/title.css">
+    <link rel="stylesheet" href="css/game.css">
 </head>
 <body>
-    <div class="titleframe">
-        <img src="img/wikirunner.png" style="width: 200px; height: 90px;"></img>
-        <h2>Wiki Runner is a web application that allows you to run Wikipedia articles.</h2>
-        <h3>Wiki Runner is developed by <NAME>.</h3>
-        <h4>Wiki Runner is licensed under the MIT License.</h4>
-        <button id="myBtn" class="btn">Click me!</button>
-        
+    <div id="titleframe">
+        <img src="img/wikirunner.png" id="tLogo"></img>
+        <button id="tBtn" class="btn">START</button>
+        <img src="img/kLogo.png" id="tkLogo"></img>
     </div>
-    <div class="hiddenframe" style="display: none;">
+
+    <div id="cookieframe" style="display: none;">
+        <img src="img/wikirunner.png" id="tLogo"></img>
+        <button id="cBtn" class="btn">START</button>
+        <img src="img/kLogo.png" id="tkLogo"></img>
+    </div>
+
+    <div id="hiddenframe" style="display: none;">
         <h1>Loading</h1>
     </div>
-    <div class="gameframe" style="display: none;">col-4</div>
-    <div class="wikiframe" style="display: none;">
-        <iframe src="wiki.html" id="wiki" frameborder="0"></iframe>
+
+    <div id="gameframe" style="display: none;">
+        <div id="dataframe" style="display: block;">col-4</div>
+        <div id="wikiframe" style="display: block;">
+            <iframe src="wiki.html" id="wiki" frameborder="0"></iframe>
+        </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
