@@ -1,30 +1,36 @@
-* { 
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-body{
-    position: relative;
-    height: 100dvh;
-    display: flex;
-
+body {
+  position: relative;
+  height: 100dvh;
+  display: flex;
 }
 
-#hiddenframe{
-    position: absolute !important;
-    height: 100%;
-    width: 100%;
+.btn {
+  width: 350px;
+  height: 100px;
 
-    background-color: white;
+  font-size: xx-large;
+
+  border: 8px double #0090bb;
+  background-color: #cceffa;
 }
 
-.btn{
-    width: 350px;
-    height: 100px;
+#hiddenframe {
+  position: absolute !important;
+  height: 100%;
+  width: 100%;
 
-    font-size: xx-large;
+  background-color: white;
+}
 
-    border: 8px double #0090bb;
-    background-color: #cceffa;
+#hiddenframe h1 {
+  position: absolute; /* 位置指定 */
+  top: 50%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
 }

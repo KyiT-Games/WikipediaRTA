@@ -1,49 +1,174 @@
 #titleframe {
-    position:relative;
-    height: 100%;
-    width: 100%;
+  position: relative;
+  height: 100%;
+  width: 100%;
 
-    background-color: #c9c9c9;
+  background-color: #c9c9c9;
 }
 
-#tLogo{
-    position: absolute;          /* 位置指定 */
-    top: 40%;                    /* 親要素の半分下にずらす */
-    left: 50%;                   /* 親要素の半分右にずらす */
-    transform: translateY(-50%) translateX(-50%);    /* 要素自体の半分、上と左にずらす */
+#tLogo {
+  position: absolute; /* 位置指定 */
+  top: 40%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
 
-    width: 50vw;
-    height: auto;
+  width: 50vw;
+  height: auto;
 }
 
-#titleframe::before{
-    position: absolute;
-    content: "";
-    width: 80vw;
-    height: 80vh;
-    background-color: #ffffff;
-    top: 50%;                    /* 親要素の半分下にずらす */
-    left: 50%;                   /* 親要素の半分右にずらす */
-    transform: translateY(-50%) translateX(-50%);    /* 要素自体の半分、上と左にずらす */
-    border-radius: 50px 50px 50px 50px;
+#titleframe::before {
+  position: absolute;
+  content: "";
+  width: 80vw;
+  height: 80vh;
+  background-color: #ffffff;
+  top: 50%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  border-radius: 50px 50px 50px 50px;
 }
 
-
-#tBtn{
-    position: absolute;          /* 位置指定 */
-    top: 80%;                    /* 親要素の半分下にずらす */
-    left: 50%;                   /* 親要素の半分右にずらす */
-    transform: translateY(-50%) translateX(-50%);    /* 要素自体の半分、上と左にずらす */
-
-
+#tBtn {
+  position: absolute; /* 位置指定 */
+  top: 80%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
 }
 
-#tkLogo{
-    position: absolute;          /* 位置指定 */
-    bottom: 1%;                    /* ��要素の半分下にずらす */
-    left: 1%;                   /* ��要素の半分右にずらす */
-    /* transform: translateY(-50%) translateX(-50%);    要素自体の半分、上と左にずらす */
-    width: 20vw;
-    height: auto;
+#tkLogo {
+  position: absolute; /* 位置指定 */
+  bottom: 1%; /* ��要素の半分下にずらす */
+  left: 1%; /* ��要素の半分右にずらす */
+  /* transform: translateY(-50%) translateX(-50%);    要素自体の半分、上と左にずらす */
+  width: 20vw;
+  height: auto;
 }
 
+.popup {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  background: #fff;
+  padding: 30px;
+  width: 700px;
+  height: 520px;
+  border-radius: 50px 50px 50px 50px;
+  position: relative;
+}
+
+#cBtn {
+  position: absolute; /* 位置指定 */
+  top: 85%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  width: 200px;
+  height: 90px;
+
+  font-size: xx-large;
+
+  border: 8px double #5e606173;
+  background-color: #becfd47e;
+}
+
+#cLabel {
+  position: absolute; /* 位置指定 */
+  top: 13%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+
+  font-size: xx-large;
+}
+
+#cLabel2 {
+  position: absolute; /* 位置指定 */
+  top: 21%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+
+  font-size: large;
+  width: 100%;
+  text-align: center;
+}
+
+.content::before {
+  position: absolute;
+  content: "";
+  width: 500px;
+  height: 4px;
+  background-color: #14c4b5;
+  top: 17%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+}
+
+#cRight {
+  position: absolute; /* 位置指定 */
+  top: 45%; /* 親要素の半分下にずらす */
+  left: 75%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+
+  font-size: xx-large;
+  z-index: 11;
+}
+
+#cLeft {
+  position: absolute; /* 位置指定 */
+  top: 45%; /* 親要素の半分下にずらす */
+  left: 25%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+
+  font-size: xx-large;
+  z-index: 11;
+}
+
+#cCheck {
+  position: absolute; /* 位置指定 */
+  top: 73%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  z-index: 12;
+
+  width: 100%;
+  text-align: center;
+}
+
+#cLPhoto {
+  position: absolute; /* 位置指定 */
+  top: 45%; /* 親要素の半分下にずらす */
+  left: 25%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  z-index: 10;
+
+  width: 40%;
+  height: auto;
+}
+
+#cRPhoto {
+  position: absolute; /* 位置指定 */
+  top: 42%; /* 親要素の半分下にずらす */
+  left: 75%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  z-index: 10;
+
+  width: 40%;
+  height: auto;
+}
+
+#cLink {
+  position: absolute; /* 位置指定 */
+  top: 45%; /* 要素の半分下にずらす */
+  left: 50%; /* 要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  z-index: 13;
+
+  width: 85%;
+  height: 40%;
+}

@@ -1,38 +1,69 @@
 <!DOCTYPE html>
 <html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Wiki Runner</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/title.css">
-    <link rel="stylesheet" href="css/game.css">
-</head>
-<body>
-    <div id="titleframe">
-        <img src="img/wikirunner.png" id="tLogo"></img>
-        <button id="tBtn" class="btn">START</button>
-        <img src="img/kLogo.png" id="tkLogo"></img>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/title.css" />
+    <link rel="stylesheet" href="css/game.css" />
+    <link rel="stylesheet" href="css/home.css" />
+    <link
+      href="https://use.fontawesome.com/releases/v6.2.0/css/all.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="titleframe" style="display: block">
+      <img src="img/wikirunner3.png" id="tLogo" />
+      <button id="tBtn" class="btn">START</button>
+      <a href="https://www.kyitgames.com/" target="_blank"
+        ><img src="img/kLogo.png" id="tkLogo"
+      /></a>
     </div>
 
-    <div id="cookieframe" style="display: none;">
-        <img src="img/wikirunner.png" id="tLogo"></img>
-        <button id="cBtn" class="btn">START</button>
-        <img src="img/kLogo.png" id="tkLogo"></img>
-    </div>
-
-    <div id="hiddenframe" style="display: none;">
-        <h1>Loading</h1>
-    </div>
-
-    <div id="gameframe" style="display: none;">
-        <div id="dataframe" style="display: block;">col-4</div>
-        <div id="wikiframe" style="display: block;">
-            <iframe src="wiki.html" id="wiki" frameborder="0"></iframe>
+    <div id="cookieframe" style="display: none">
+      <div class="popup">
+        <div class="content">
+          <p id="cLabel">ゲームの前に・・・</p>
+          <p id="cLabel2">以下の内容に同意願います。(画像付近をクリック)</p>
+          <a href="https://www.kyitgames.com/" target="_blank" id="cLink"></a>
+          <p id="cLeft">Cookieポリシー</p>
+          <img src="img/cookie.png" id="cLPhoto" />
+          <p id="cRight">利用規約</p>
+          <img src="img/attention.png" id="cRPhoto" />
+          <p id="cCheck">
+            <input type="checkbox" id="cCheckbox" />
+            以上のCookieポリシーと利用規約に同意します。
+          </p>
+          <button id="cBtn" class="btn">続行</button>
         </div>
+      </div>
+    </div>
+
+    <div id="hiddenframe" style="display: none">
+      <h1>Loading</h1>
+    </div>
+
+    <div id="homeframe" style="display: none">
+      <img src="img/wikirunner2.png" id="hLogo" />
+      <button id="hBtn" class="btn">スタート</button>
+      <button id="hSetting">スタート</button>
+      <div id="ranking"></div>
+      <i class="fa-solid fa-gear"></i>
+    </div>
+
+    <div id="gameframe" style="display: none">
+      <div id="dataframe" style="display: block">col-4</div>
+      <div id="wikiframe" style="display: block">
+        <iframe src="wiki.html" id="wiki" frameborder="0"></iframe>
+      </div>
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js"></script>
     <script src="js/script.js"></script>
-</body>
+    <script src="js/game.js"></script>
+    <script src="js/cookie.js"></script>
+  </body>
 </html>

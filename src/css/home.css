@@ -1,0 +1,39 @@
+#hLogo {
+  position: absolute; /* 位置指定 */
+  top: 10%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+
+  width: 50vw;
+  max-width: 700px;
+  height: auto;
+}
+
+#ranking {
+  position: absolute; /* 位置指定 */
+  top: 50%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+
+  background-color: red;
+  width: 50vw;
+  height: 400px;
+  max-width: 700px;
+}
+
+#homeframe {
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  background-color: #c9c9c9;
+}
+
+#hBtn {
+  position: absolute; /* 位置指定 */
+  bottom: 10%; /* 親要素の半分下にずらす */
+  left: 10%; /* 親要素の半分右にずらす */
+
+  width: 200px;
+  height: auto;
+}
