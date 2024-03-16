@@ -8,37 +8,36 @@ function displayOnOff(onoff) {
   }
 }
 
-window.addEventListener("message", (response) => {
-  displayOnOff(true);
-  console.log(response.data);
-  wikiLoad(response.data, false).then((articlehtml) => {
-    console.log(articlehtml);
-    displayOnOff(false);
-  });
-});
-
-function startGame() {
-  displayOnOff(true);
-  $("#titleframe").css("display", "none");
-  wikiFetch().then((article) => {
-    //then節の中に2つ読み込まれてから実行される
-    console.log(article[0]);
-    console.log(article[1]);
-
-    wikiLoad(article[0][0], true).then((articlehtml) => {
-      //記事が読み込まれてから実行される。
-      console.log(articlehtml);
-      $("#gameframe").css("display", "flex");
-      $("#wikiframe").css("display", "block");
-      $("#dataframe").css("display", "block");
-      displayOnOff(false);
-    });
-  });
-}
-
 function moveHome() {
   $("#titleframe").css("display", "none");
   $("#gameframe").css("display", "none");
   $("#cookieframe").css("display", "none");
   $("#homeframe").css("display", "block");
 }
+
+$("#hBtn").click(function () {
+  startGame();
+});
+
+$("#hSetting").click(function () {
+  $("#sContent1").css("display", "block");
+  $("#sContent2").css("display", "none");
+  $("#settingframe").css("display", "flex");
+});
+
+$("#sBtn4").click(function () {
+  $("#sContent1").css("display", "none");
+  $("#sContent2").css("display", "block");
+  $("#settingframe").css("display", "flex");
+});
+
+$("#sBack1").click(function () {
+  $("#sContent1").css("display", "none");
+  $("#sContent2").css("display", "none");
+  $("#settingframe").css("display", "none");
+});
+
+$("#sBack2").click(function () {
+  $("#sContent1").css("display", "block");
+  $("#sContent2").css("display", "none");
+});

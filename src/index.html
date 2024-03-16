@@ -48,9 +48,55 @@
     <div id="homeframe" style="display: none">
       <img src="img/wikirunner2.png" id="hLogo" />
       <button id="hBtn" class="btn">スタート</button>
-      <button id="hSetting">スタート</button>
       <div id="ranking"></div>
-      <i class="fa-solid fa-gear"></i>
+      <i class="fa-regular fa-circle-question" id="hSetting"></i>
+    </div>
+
+    <div id="settingframe" style="display: none">
+      <div id="sContent1" class="sPopup">
+        <a id="sBtn1" class="btn b1">利用規約</a>
+        <a id="sBtn2" class="btn b2">ゲーム概要</a>
+        <a id="sBtn3" class="btn b3">プライバシーポリシー</a>
+        <a id="sBtn4" class="btn b4">外部リンク</a>
+        <i class="fa-solid fa-arrow-left" id="sBack1"></i>
+      </div>
+      <div id="sContent2" class="sPopup">
+        <a
+          id="s2Btn1"
+          class="btn b1"
+          href="https://www.kyitgames.com/"
+          target="_blank"
+          >ホームページ</a
+        >
+        <a
+          id="s2Btn2"
+          class="btn b2"
+          href="https://twitter.com/kyitgames"
+          target="_blank"
+          >公式X</a
+        >
+        <a
+          id="s2Btn3"
+          class="btn b3"
+          href="https://www.youtube.com/@KyiTGames"
+          target="_blank"
+          >公式YouTube</a
+        >
+        <a id="s2Btn4" class="btn b4">フィードバック</a>
+        <i class="fa-solid fa-arrow-left" id="sBack2"></i>
+      </div>
+    </div>
+
+    <div id="startframe" style="display: none">
+      <div id="sgBox">
+        <p id="sgLabel1" class="sgLabel">START</p>
+        <p id="sgLabel2" class="sgLabel">GOAL</p>
+        <p id="sgLabelA1" class="sgLabelA"></p>
+        <p id="sgLabelA2" class="sgLabelA"></p>
+        <i id="sgArrow" class="fa-solid fa-angles-down"></i>
+      </div>
+      <p id="sgTimer"></p>
+      <button id="sgBtn" class="btn">スタート</button>
     </div>
 
     <div id="gameframe" style="display: none">

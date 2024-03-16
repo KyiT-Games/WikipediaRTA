@@ -1,21 +1,95 @@
-#dataframe{
-    height: 100%;
-    width: 30%;
+#dataframe {
+  height: 100%;
+  width: 30%;
 }
 
-#wikiframe{
-    height: 100%;
-    width: 70%;
+#wikiframe {
+  height: 100%;
+  width: 70%;
 }
 
-#gameframe{
-    height: 100%;
-    width: 100%;
+#gameframe {
+  height: 100%;
+  width: 100%;
 
-    display: flex;
+  display: flex;
 }
 
-#wiki{
-    width: 100%;
-    height: 95%;
+#wiki {
+  width: 100%;
+  height: 95%;
+  margin-top: 2.5%;
+}
+
+#startframe {
+  width: 100%;
+  height: 100%;
+  background-color: #555555;
+}
+
+#sgLabel1 {
+  position: absolute;
+  top: 25%;
+  left: 25%;
+  transform: translateY(-50%) translateX(-50%);
+  text-align: center;
+}
+
+#sgLabel2 {
+  position: absolute;
+  top: 25%;
+  left: 75%;
+  transform: translateY(-50%) translateX(-50%);
+  text-align: center;
+}
+
+.sgLabel {
+  width: fit-content;
+  font-size: xx-large;
+}
+
+#sgLabelA1 {
+  position: absolute;
+  top: 50%;
+  left: 25%;
+  transform: translateY(-50%) translateX(-50%);
+  text-align: center;
+}
+
+#sgLabelA2 {
+  position: absolute;
+  top: 50%;
+  left: 75%;
+  transform: translateY(-50%) translateX(-50%);
+  text-align: center;
+}
+
+#sgArrow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(0%) translateX(50%);
+  text-align: center;
+  scale: 1.5;
+  rotate: 270deg;
+}
+
+#sgBtn {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+}
+
+#sgBox {
+  position: absolute;
+
+  top: 25%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+
+  width: 70%;
+  height: 40%;
+  background-color: #fff;
+  border-radius: 50px 50px 50px 50px;
 }

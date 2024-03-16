@@ -18,6 +18,15 @@ body {
 
   border: 8px double #0090bb;
   background-color: #cceffa;
+
+  text-align: center;
+}
+
+.btn:hover {
+  border: 8px double #2db4dd;
+  background-color: #eefbff;
+
+  text-align: center;
 }
 
 #hiddenframe {

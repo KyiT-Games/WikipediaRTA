@@ -37,3 +37,87 @@
   width: 200px;
   height: auto;
 }
+
+#hSetting {
+  position: absolute; /* 位置指定 */
+  top: 3%; /* 親要素の半分下にずらす */
+  right: 3%; /* ��要素の半分右にずらす */
+  scale: 2;
+}
+
+#settingframe {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}
+
+.sPopup {
+  background: #fff;
+  padding: 30px;
+  width: 700px;
+  height: 520px;
+  border-radius: 50px 50px 50px 50px;
+  position: relative;
+}
+
+.b1 {
+  position: absolute; /* 位置指定 */
+  top: 30%; /* 親要素の半分下にずらす */
+  left: 25%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  border-radius: 5px;
+
+  width: 200px;
+}
+
+.b2 {
+  position: absolute; /* 位置指定 */
+  top: 30%; /* 親要素の半分下にずらす */
+  left: 75%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  border-radius: 5px;
+
+  width: 200px;
+}
+
+.b3 {
+  position: absolute; /* 位置指定 */
+  top: 70%; /* 親要素の半分下にずらす */
+  left: 25%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  border-radius: 5px;
+
+  width: 200px;
+}
+
+.b4 {
+  position: absolute; /* 位置指定 */
+  top: 70%; /* 親要素の半分下にずらす */
+  left: 75%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  border-radius: 5px;
+
+  width: 200px;
+}
+
+#sBack1 {
+  position: absolute; /* 位置指定 */
+  top: 10%; /* 親要素の半分下にずらす */
+  left: 10%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  scale: 1.7;
+}
+
+#sBack2 {
+  position: absolute; /* 位置指定 */
+  top: 10%; /* 親要素の半分下にずらす */
+  left: 10%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  scale: 1.7;
+}
