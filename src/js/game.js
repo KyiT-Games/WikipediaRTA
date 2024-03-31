@@ -1,4 +1,5 @@
 let articlesGoal = [];
+let difficult = 1;
 
 //２個ランダムに記事データを取ってくる
 const wikiFetch = async () => {

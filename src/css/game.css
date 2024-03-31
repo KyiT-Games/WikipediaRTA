@@ -48,6 +48,11 @@
   font-size: xx-large;
 }
 
+.sgLabelA {
+  width: 35%;
+  max-width: 300px;
+}
+
 #sgLabelA1 {
   position: absolute;
   top: 50%;

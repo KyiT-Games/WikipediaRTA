@@ -36,7 +36,7 @@
             <input type="checkbox" id="cCheckbox" />
             以上のCookieポリシーと利用規約に同意します。
           </p>
-          <button id="cBtn" class="btn">続行</button>
+          <button id="cBtn" class="cBtndisabled">続行</button>
         </div>
       </div>
     </div>
@@ -47,8 +47,54 @@
 
     <div id="homeframe" style="display: none">
       <img src="img/wikirunner2.png" id="hLogo" />
-      <button id="hBtn" class="btn">スタート</button>
-      <div id="ranking"></div>
+      <div id="difficultlySetting">
+        <p id="dLabel">難易度設定</p>
+        <p>デフォルトでHARDが選択されています</p>
+        <div id="dsSelect">
+          <div id="dsNormal" class="dsSelector">
+            <p class="dsdiff">NORMAL</p>
+            <p clsdd="dsExplain">
+              もっとも簡単な難易度で、約100記事からスタートとゴールが選ばれます。初心者におすすめ
+            </p>
+          </div>
+          <div id="dsHard" class="dsSelector dsSelected">
+            <p class="dsdiff">HARD</p>
+            <p clsdd="dsExplain">
+              中くらいの難易度で、約500記事からスタートとゴールが選ばれます。中級者におすすめ
+            </p>
+          </div>
+          <div id="dsMaster" class="dsSelector">
+            <p class="dsdiff">MATSER</p>
+            <p clsdd="dsExplain">
+              最難関の設定で、Wikipediaに存在するすべての記事からスタートとゴールが選ばれます。上級者におすすめ
+            </p>
+          </div>
+        </div>
+        <button id="hBtn" class="btn">スタート</button>
+      </div>
+      <div id="ranking">
+        <div id="ranktable">
+          <table
+            id="ranktable2"
+            border="1"
+            width="100%"
+            style="border-collapse: collapse"
+          >
+            <tr>
+              <th>NAME</th>
+              <th>SCORE</th>
+              <th>TIME</th>
+              <th>DATE</th>
+            </tr>
+            <tr>
+              <td>000</td>
+              <td>000</td>
+              <td>000</td>
+              <td>000</td>
+            </tr>
+          </table>
+        </div>
+      </div>
       <i class="fa-regular fa-circle-question" id="hSetting"></i>
     </div>
 
@@ -111,5 +157,6 @@
     <script src="js/script.js"></script>
     <script src="js/game.js"></script>
     <script src="js/cookie.js"></script>
+    <script src="js/home.js"></script>
   </body>
 </html>

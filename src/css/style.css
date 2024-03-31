@@ -8,25 +8,26 @@ body {
   position: relative;
   height: 100dvh;
   display: flex;
+  user-select: none;
 }
 
 .btn {
-  width: 350px;
-  height: 100px;
-
-  font-size: xx-large;
-
-  border: 8px double #0090bb;
-  background-color: #cceffa;
-
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 5px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 19px;
   text-align: center;
+  background-color: #979797;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
 }
 
 .btn:hover {
-  border: 8px double #2db4dd;
-  background-color: #eefbff;
-
-  text-align: center;
+  background-color: #afafaf;
 }
 
 #hiddenframe {

@@ -19,7 +19,7 @@ $("#tBtn").on("click", function () {
 $("#cBtn").on("click", function () {
   if (allowCookie() || $("#cCheckbox").prop("checked")) {
     $(".popup").css("display", "none");
-    Cookies.set("allowCookie", "true");
+    Cookies.set("allowCookie", "true", { expires: 365 });
     moveHome();
   }
   // return false;
@@ -27,10 +27,10 @@ $("#cBtn").on("click", function () {
 
 document.getElementById("cCheckbox").addEventListener("change", function () {
   if ($("#cCheckbox").prop("checked")) {
-    $("#cBtn").css("border", "8px double #0090bb");
-    $("#cBtn").css("background-color", "#cceffa");
+    $("#cBtn").removeClass("cBtndisabled");
+    $("#cBtn").addClass("btn");
   } else {
-    $("#cBtn").css("border", "8px double #5e606173");
-    $("#cBtn").css("background-color", "#becfd47e");
+    $("#cBtn").removeClass("btn");
+    $("#cBtn").addClass("cBtndisabled");
   }
 });

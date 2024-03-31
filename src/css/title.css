@@ -69,13 +69,24 @@
   top: 85%; /* 親要素の半分下にずらす */
   left: 50%; /* 親要素の半分右にずらす */
   transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
-  width: 200px;
-  height: 90px;
 
-  font-size: xx-large;
+  width: 20vw;
+  height: auto;
+}
 
-  border: 8px double #5e606173;
-  background-color: #becfd47e;
+.cBtndisabled {
+  display: block;
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 24px 5px;
+  color: #6e6e6e;
+  font-weight: bold;
+  font-size: 19px;
+  text-align: center;
+  background-color: #d1d1d1;
+  border-radius: 10px;
+  border-color: #cacaca;
 }
 
 #cLabel {
