@@ -49,25 +49,28 @@
       <img src="img/wikirunner2.png" id="hLogo" />
       <div id="difficultlySetting">
         <p id="dLabel">難易度設定</p>
-        <p>デフォルトでHARDが選択されています</p>
+        <p>デフォルトで<a id="dLabel2"></a>が選択されています</p>
         <div id="dsSelect">
           <div id="dsNormal" class="dsSelector">
             <p class="dsdiff">NORMAL</p>
-            <p clsdd="dsExplain">
-              もっとも簡単な難易度で、約100記事からスタートとゴールが選ばれます。初心者におすすめ
+            <p class="dsExplain">
+              もっとも簡単な難易度で、約100記事からスタートとゴールが選ばれます。
             </p>
+            <p class="dsExplain bold">初心者におすすめ</p>
           </div>
           <div id="dsHard" class="dsSelector dsSelected">
             <p class="dsdiff">HARD</p>
-            <p clsdd="dsExplain">
-              中くらいの難易度で、約500記事からスタートとゴールが選ばれます。中級者におすすめ
+            <p class="dsExplain">
+              中くらいの難易度で、約500記事からスタートとゴールが選ばれます。
             </p>
+            <p class="dsExplain bold">中級者におすすめ</p>
           </div>
           <div id="dsMaster" class="dsSelector">
             <p class="dsdiff">MATSER</p>
-            <p clsdd="dsExplain">
-              最難関の設定で、Wikipediaに存在するすべての記事からスタートとゴールが選ばれます。上級者におすすめ
+            <p class="dsExplain">
+              最難関の設定で、Wikipediaに存在するすべての記事からスタートとゴールが選ばれます。
             </p>
+            <p class="dsExplain bold">上級者におすすめ</p>
           </div>
         </div>
         <button id="hBtn" class="btn">スタート</button>
@@ -81,16 +84,11 @@
             style="border-collapse: collapse"
           >
             <tr>
-              <th>NAME</th>
-              <th>SCORE</th>
-              <th>TIME</th>
-              <th>DATE</th>
-            </tr>
-            <tr>
-              <td>000</td>
-              <td>000</td>
-              <td>000</td>
-              <td>000</td>
+              <th id="rtNum"><i class="fa-solid fa-crown"></i></th>
+              <th id="rtName">NAME</th>
+              <th id="rtScore">SCORE</th>
+              <th id="rtTime">TIME</th>
+              <th id="rtDate">DATE</th>
             </tr>
           </table>
         </div>
@@ -146,8 +144,32 @@
     </div>
 
     <div id="gameframe" style="display: none">
-      <div id="dataframe" style="display: block">col-4</div>
-      <div id="wikiframe" style="display: block">
+      <div id="dataframe" class="game" style="display: block">
+        <div id="gCtlframe" class="game dataF">
+          <div id="gExitframe" class="game dataF ctl btn">
+            <i class="fa-solid fa-right-from-bracket"></i>
+            <p>退出</p>
+          </div>
+          <div id="gBackframe" class="game dataF ctl btn">
+            <i class="fa-solid fa-arrow-left"></i>
+            <p>一つ前のページ</p>
+          </div>
+        </div>
+        <div id="gTimerframe" class="game dataF">
+          <p class="gcLabel">タイマー</p>
+          <p id="gTimer" class="gcLabelB">NAN</p>
+        </div>
+        <div id="gCounterframe" class="game dataF">
+          <p class="gcLabel">記事遷移回数</p>
+          <p id="gCounter" class="gcLabelB">NAN</p>
+        </div>
+        <div id="gGoalframe" class="game dataF">
+          <p class="gcLabel">ゴール</p>
+          <p id="gGoal" class="gcLabelB">NAN</p>
+        </div>
+        <div id="gLogframe" class="game dataF"></div>
+      </div>
+      <div id="wikiframe" class="game" style="display: block">
         <iframe src="wiki.html" id="wiki" frameborder="0"></iframe>
       </div>
     </div>

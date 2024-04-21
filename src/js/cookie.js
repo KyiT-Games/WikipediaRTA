@@ -5,13 +5,24 @@ function allowCookie() {
     return false;
   }
 }
+function saveDifficult(diff) {
+  Cookies.set("difficultly", diff, { expires: 365 });
+}
+function loadDifficult() {
+  const diff = Cookies.get("difficultly");
+  if (diff == undefined) {
+    return 1;
+  } else {
+    return diff;
+  }
+}
 
 $("#tBtn").on("click", function () {
   if (!allowCookie()) {
     $("#cookieframe").css("display", "block");
     $(".popup").css("display", "flex");
   } else {
-    moveHome();
+    document.getElementById("cBtn").click();
   }
   // return false;
 });

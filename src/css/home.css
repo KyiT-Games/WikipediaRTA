@@ -37,9 +37,9 @@
 
 #hSetting {
   position: absolute; /* 位置指定 */
-  top: 3%; /* 親要素の半分下にずらす */
+  top: 5%; /* 親要素の半分下にずらす */
   right: 3%; /* ��要素の半分右にずらす */
-  scale: 2;
+  scale: 2.5;
 }
 
 #settingframe {
@@ -177,5 +177,45 @@
 #ranktable {
   margin: 10% 5% 5% 5%;
   overflow-y: scroll;
-  height: 90%;
+  height: 85%;
+  text-align: center;
+}
+
+#ranktable2 tr {
+  height: 40px;
+}
+
+#rtNum {
+  width: 10%;
+}
+
+#rtName {
+  width: 35%;
+}
+
+#rtScore {
+  width: 10%;
+}
+
+#rtTime {
+  width: 10%;
+}
+
+#rtDate {
+  width: 35%;
+}
+
+.dsExplain {
+  margin-top: 10%;
+}
+
+.dsdiff {
+  margin-top: 20%;
+  font-size: 130%;
+  font-weight: bold;
+  width: 100%;
+}
+
+.bold {
+  font-weight: 600;
 }

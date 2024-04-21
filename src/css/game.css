@@ -1,24 +1,109 @@
 #dataframe {
-  height: 100%;
+  height: 95%;
   width: 30%;
 }
 
 #wikiframe {
-  height: 100%;
+  height: 95%;
   width: 70%;
+  background-color: #fff;
 }
 
 #gameframe {
   height: 100%;
   width: 100%;
-
+  background-color: #555555;
   display: flex;
 }
 
 #wiki {
   width: 100%;
-  height: 95%;
-  margin-top: 2.5%;
+  height: 100%;
+}
+
+.game {
+  margin: 0.5%;
+  border-radius: 10px;
+}
+.dataF {
+  margin-top: 0%;
+  margin-bottom: 1%;
+  text-align: center;
+  position: relative;
+  white-space: nowrap;
+}
+
+.gcLabel {
+  font-size: 15px;
+  font-weight: 600;
+}
+.gcLabelB {
+  font-size: 30px;
+  font-weight: 600;
+  width: 100%;
+  top: 55%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  position: absolute;
+}
+
+#gTimerframe {
+  width: 100%;
+  height: 10%;
+  background-color: #fff;
+}
+
+#gCounterframe {
+  width: 100%;
+  height: 10%;
+  background-color: #fff;
+}
+
+#gCtlframe {
+  width: 100%;
+  height: 10%;
+  display: flex;
+}
+
+#gExitframe {
+  width: 49%;
+}
+
+#gGoalframe {
+  width: 100%;
+  height: 10%;
+  background-color: #fff;
+  white-space: initial;
+}
+
+#gLogframe {
+  width: 100%;
+  height: 58.5%;
+  background-color: #fff;
+}
+
+.ctl {
+  width: 70%;
+  height: 100%;
+  background-color: #fff;
+  position: relative;
+}
+.ctl i {
+  font-size: 30px;
+  color: #000;
+  position: absolute; /* 位置指定 */
+  top: 45%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+}
+
+.ctl p {
+  font-size: 15px;
+  color: #000;
+  position: absolute; /* 位置指定 */
+  top: 75%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
 }
 
 #startframe {
@@ -51,6 +136,7 @@
 .sgLabelA {
   width: 35%;
   max-width: 300px;
+  user-select: all;
 }
 
 #sgLabelA1 {
