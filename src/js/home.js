@@ -22,6 +22,7 @@ function moveHome() {
   $("#titleframe").css("display", "none");
   $("#gameframe").css("display", "none");
   $("#cookieframe").css("display", "none");
+  $("#goalframe").css("display", "none");
   $("#homeframe").css("display", "block");
 
   difficult = -1;

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/title.css" />
     <link rel="stylesheet" href="css/game.css" />
     <link rel="stylesheet" href="css/home.css" />
+    <link rel="stylesheet" href="css/goal.css" />
     <link
       href="https://use.fontawesome.com/releases/v6.2.0/css/all.css"
       rel="stylesheet"
@@ -157,20 +158,59 @@
         </div>
         <div id="gTimerframe" class="game dataF">
           <p class="gcLabel">タイマー</p>
-          <p id="gTimer" class="gcLabelB">NAN</p>
+          <p id="gTimer" class="gcLabelB">NaN</p>
         </div>
         <div id="gCounterframe" class="game dataF">
           <p class="gcLabel">記事遷移回数</p>
-          <p id="gCounter" class="gcLabelB">NAN</p>
+          <p id="gCounter" class="gcLabelB">NaN</p>
         </div>
         <div id="gGoalframe" class="game dataF">
           <p class="gcLabel">ゴール</p>
-          <p id="gGoal" class="gcLabelB">NAN</p>
+          <p id="gGoal" class="gcLabelB">NaN</p>
         </div>
-        <div id="gLogframe" class="game dataF"></div>
+        <div id="gLogframe" class="game dataF">
+          <p class="gcLabel">履歴</p>
+          <p id="gGoal" class="gcLabelB">NaN</p>
+        </div>
       </div>
       <div id="wikiframe" class="game" style="display: block">
         <iframe src="wiki.html" id="wiki" frameborder="0"></iframe>
+      </div>
+    </div>
+
+    <div id="goalframe" style="display: none">
+      <p id="goLabel">!!GOAL!!</p>
+
+      <div id="goTimeFrame" class="goLabel">
+        <p class="goLabelCL">所要時間</p>
+        <p id="goTime" class="goLabelCBL">NaN</p>
+      </div>
+      <div id="goCounterFrame" class="goLabel">
+        <p class="goLabelCL">記事遷移回数</p>
+        <p id="goCounter" class="goLabelCBL">NaN</p>
+      </div>
+
+      <div id="goScoreFrame" class="goLabel">
+        <p class="goLabelCL">スコア</p>
+        <p id="goScore" class="goLabelCBL">NaN</p>
+      </div>
+      <button id="goeExit" class="btn">退出</button>
+      <div id="askRankingFrame" style="display: none">
+        <div id="askRankingFramePopup">
+          <i id="arIcon" class="fa-solid fa-triangle-exclamation"></i>
+          <p>ランキングに投稿して終了しますか？</p>
+          <p id="askRankExplain">
+            名前欄にはデフォルトで「匿名W」が入力されています。<br />
+            投稿ボタンが押されると同時に、ランキングポリシーに同意されたものとみなします。<br />
+            <br />
+            ランキングに参加したくない方は下のボタンをクリック↓
+          </p>
+          <input type="text" id="askRankingName" value="匿名Ｗ" />
+          <button id="askRankingSend" class="btn">投稿</button>
+          <button id="askRankingNo" class="btn">
+            ランキングに参加せず終了
+          </button>
+        </div>
       </div>
     </div>
 
@@ -180,5 +220,6 @@
     <script src="js/game.js"></script>
     <script src="js/cookie.js"></script>
     <script src="js/home.js"></script>
+    <script src="js/goal.js"></script>
   </body>
 </html>

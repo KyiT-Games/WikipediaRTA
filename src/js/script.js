@@ -21,7 +21,7 @@ const sendScore = async (diff, name, score, time) => {
     apiURL +
       "write/" +
       diff +
-      "/?name=" +
+      "?name=" +
       name +
       "&score=" +
       score +

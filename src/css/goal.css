@@ -1,0 +1,193 @@
+#goalframe {
+  background-color: rgb(175, 175, 175);
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+#goLabel {
+  font-size: 1000%;
+  font-weight: 700;
+  position: absolute;
+  top: 10%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+}
+
+.goLabel {
+  font-size: 100%;
+  font-weight: 700;
+  position: absolute;
+
+  width: 300px;
+  height: 120px;
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  text-align: center;
+}
+
+.goLabel::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 50%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  width: 300px;
+  height: 120px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+.goLabelCBL {
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 300px;
+  top: 50%;
+  font-size: 200%;
+  text-align: center;
+}
+
+.goLabelCL {
+  position: absolute;
+  margin-top: 3%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  width: 300px;
+  top: 10%;
+}
+
+#goTimeFrame {
+  top: 30%; /* 親要素の半分下にずらす */
+  left: 25%; /* 親要素の半分右にずらす */
+}
+
+#goCounterFrame {
+  top: 30%; /* 親要素の半分下にずらす */
+  left: 75%; /* 親要素の半分右にずらす */
+}
+
+#goScoreFrame {
+  top: 70%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+}
+#goScoreFrame::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: 70%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  width: 60vw;
+  height: 20vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+}
+
+#goScore {
+  font-size: 300%;
+  font-weight: 700;
+  position: absolute;
+  top: 50%;
+  bottom: 50%;
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  text-align: center;
+}
+
+#goeExit {
+  position: absolute;
+  bottom: 5%;
+  right: 5%;
+  width: 50%;
+  height: 10%;
+}
+
+#askRankingFramePopup {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  width: 50vw;
+  max-width: 720px;
+  min-width: 600px;
+  height: 50vh;
+  background-color: rgb(255, 255, 255);
+  border-radius: 10px;
+  z-index: 10;
+}
+
+#askRankingFrame {
+  background-color: rgba(0, 0, 0, 0.7);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  width: 100vw;
+  height: 100dvh;
+  z-index: 10;
+}
+
+#arIcon {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  font-size: 800%;
+}
+
+#askRankingFramePopup p {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  width: 100%;
+  text-align: center;
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  font-size: 130%;
+}
+
+#askRankingNo {
+  position: absolute;
+  top: 90%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  max-width: 90% !important;
+  padding: 0px 0px;
+  height: 10%;
+  z-index: 10;
+}
+
+#askRankingName {
+  position: absolute;
+  top: 55%;
+  left: 42.5%;
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  width: 75%;
+  height: 8%;
+  text-align: center;
+  z-index: 10;
+  font-size: 120%;
+  font-family: "Linux Libertine Display", "游明朝", YuMincho,
+    "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN",
+    "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif !important;
+}
+#askRankingSend {
+  position: absolute;
+  top: 55%;
+  left: 87.5%;
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+  padding: 0px;
+  max-width: 15%;
+  height: 8%;
+  text-align: center;
+  z-index: 10;
+}
+
+#askRankExplain {
+  position: absolute;
+  top: 70% !important;
+  font-size: 100% !important;
+  line-height: 100%;
+  max-width: 80%;
+}

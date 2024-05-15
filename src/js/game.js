@@ -117,11 +117,45 @@ const wikiLoad = async (articleid, title) => {
 };
 
 window.addEventListener("message", (response) => {
-  console.log(response.data);
-  wikiLoad(response.data, false).then((articlehtml) => {
-    console.log(articlehtml);
+  wikiLoad(decodeURI(response.data), false).then((articlehtml) => {
+    if (decodeURI(response.data) == articlesGoal[1]) {
+      endGame();
+    }
   });
 });
+
+const time = document.getElementById("gTimer");
+
+// 開始時間
+let startTime;
+// 停止時間
+let stopTime = 0;
+// タイムアウトID
+let timeoutID;
+
+function displayTime() {
+  const currentTime = new Date(Date.now() - startTime);
+  const h = String(currentTime.getHours() - 9).padStart(2, "0");
+  const m = String(currentTime.getMinutes()).padStart(2, "0");
+  const s = String(currentTime.getSeconds()).padStart(2, "0");
+  const ms = String(currentTime.getMilliseconds()).padStart(3, "0");
+
+  time.textContent = `${h}:${m}:${s}.${ms}`;
+  timeoutID = setTimeout(displayTime, 10);
+}
+
+// スタートボタンがクリックされたら時間を進める
+function gTimerStart() {
+  time.textContent = "00:00:00.000";
+  startTime = Date.now();
+  displayTime();
+}
+
+// ストップボタンがクリックされたら時間を止める
+function gTimerStop() {
+  clearTimeout(timeoutID);
+  return [time.textContent, new Date(Date.now() - startTime)];
+}
 
 function startGame() {
   displayOnOff(true);
@@ -148,4 +182,5 @@ $("#sgBtn").click(function () {
   $("#gameframe").css("display", "flex");
   $("#wikiframe").css("display", "block");
   $("#dataframe").css("display", "block");
+  gTimerStart();
 });

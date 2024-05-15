@@ -34,11 +34,11 @@
 }
 
 .gcLabel {
-  font-size: 15px;
+  font-size: 100%;
   font-weight: 600;
 }
 .gcLabelB {
-  font-size: 30px;
+  font-size: 200%;
   font-weight: 600;
   width: 100%;
   top: 55%;
