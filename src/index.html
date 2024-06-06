@@ -48,34 +48,6 @@
 
     <div id="homeframe" style="display: none">
       <img src="img/wikirunner2.png" id="hLogo" />
-      <div id="difficultlySetting">
-        <p id="dLabel">難易度設定</p>
-        <p>デフォルトで<a id="dLabel2"></a>が選択されています</p>
-        <div id="dsSelect">
-          <div id="dsNormal" class="dsSelector">
-            <p class="dsdiff">NORMAL</p>
-            <p class="dsExplain">
-              もっとも簡単な難易度で、約100記事からスタートとゴールが選ばれます。
-            </p>
-            <p class="dsExplain bold">初心者におすすめ</p>
-          </div>
-          <div id="dsHard" class="dsSelector dsSelected">
-            <p class="dsdiff">HARD</p>
-            <p class="dsExplain">
-              中くらいの難易度で、約500記事からスタートとゴールが選ばれます。
-            </p>
-            <p class="dsExplain bold">中級者におすすめ</p>
-          </div>
-          <div id="dsMaster" class="dsSelector">
-            <p class="dsdiff">MATSER</p>
-            <p class="dsExplain">
-              最難関の設定で、Wikipediaに存在するすべての記事からスタートとゴールが選ばれます。
-            </p>
-            <p class="dsExplain bold">上級者におすすめ</p>
-          </div>
-        </div>
-        <button id="hBtn" class="btn">スタート</button>
-      </div>
       <div id="ranking">
         <div id="ranktable">
           <table
@@ -94,6 +66,39 @@
           </table>
         </div>
       </div>
+
+      <div id="difficultlySetting">
+        <p id="dLabel">難易度設定</p>
+        <p>デフォルトで<a id="dLabel2"></a>が選択されています</p>
+        <div id="dsSelect">
+          <div id="dsNormal" class="dsSelector">
+            <p class="dsdiff">NORMAL</p>
+            <i class="fa-regular fa-circle-question dsIcon"></i>
+            <p class="dsExplainF">
+              もっとも簡単な難易度で、約100記事からスタートとゴールが選ばれます。
+            </p>
+            <p class="dsExplain bold">初心者におすすめ</p>
+          </div>
+          <div id="dsHard" class="dsSelector dsSelected">
+            <p class="dsdiff">HARD</p>
+            <i class="fa-regular fa-circle-question dsIcon"></i>
+            <p class="dsExplainF">
+              中くらいの難易度で、約500記事からスタートとゴールが選ばれます。
+            </p>
+            <p class="dsExplain bold">中級者におすすめ</p>
+          </div>
+          <div id="dsMaster" class="dsSelector">
+            <p class="dsdiff">MATSER</p>
+            <i class="fa-regular fa-circle-question dsIcon"></i>
+            <p class="dsExplainF">
+              最難関の設定で、Wikipediaに存在するすべての記事からスタートとゴールが選ばれます。
+            </p>
+            <p class="dsExplain bold">上級者におすすめ</p>
+          </div>
+        </div>
+        <button id="hBtn" class="btn">スタート</button>
+      </div>
+
       <i class="fa-regular fa-circle-question" id="hSetting"></i>
     </div>
 

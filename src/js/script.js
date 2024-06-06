@@ -45,3 +45,20 @@ const sendScore = async (diff, name, score, time) => {
   const valueJson = await fetchValue; //非同期処理を実行
   return valueJson;
 };
+
+//画面幅による内容の変更
+function switchByWidth() {
+  if (window.matchMedia("(max-width: 767px)").matches) {
+    //スマホ処理
+    $(".displayL").css("display", "none");
+    $(".displayS").css("display", "block");
+  } else if (window.matchMedia("(min-width:768px)").matches) {
+    //PC処理
+    $(".displayS").css("display", "none");
+    $(".displayL").css("display", "block");
+  }
+}
+
+//ロードとリサイズの両方で同じ処理を付与する
+window.onload = switchByWidth;
+window.onresize = switchByWidth;

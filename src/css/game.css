@@ -1,11 +1,11 @@
 #dataframe {
   height: 95%;
-  width: 30%;
+  width: clamp(15px, 30%, 400px);
 }
 
 #wikiframe {
   height: 95%;
-  width: 70%;
+  width: calc(100% - clamp(15px, 30%, 300px));
   background-color: #fff;
 }
 
@@ -34,11 +34,11 @@
 }
 
 .gcLabel {
-  font-size: 100%;
+  font-size: clamp(5px, 1.5vw, 15px);
   font-weight: 600;
 }
 .gcLabelB {
-  font-size: 200%;
+  font-size: clamp(15px, 3vw, 25px);
   font-weight: 600;
   width: 100%;
   top: 55%;
@@ -89,7 +89,7 @@
   position: relative;
 }
 .ctl i {
-  font-size: 30px;
+  font-size: clamp(15px, 2.5vw, 25px);
   color: #000;
   position: absolute; /* 位置指定 */
   top: 45%; /* 親要素の半分下にずらす */

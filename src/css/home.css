@@ -219,3 +219,42 @@
 .bold {
   font-weight: 600;
 }
+
+.dsIcon {
+  position: relative;
+  padding: 20px;
+  scale: 1.5;
+}
+.dsExplainF {
+  display: none;
+  width: 200px;
+  position: absolute;
+  top: -170px;
+  left: 50px;
+  padding: 16px;
+  border-radius: 5px;
+  transition: all 0.2s 1s ease-in-out;
+  background: #555555;
+  color: #fff;
+  font-weight: bold;
+  z-index: calc(infinity) !important;
+}
+.dsExplainF:after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  left: 0;
+  bottom: -19px;
+  margin-left: 10px;
+  border: solid transparent;
+  border-color: rgba(51, 204, 153, 0);
+  border-top-color: #555555;
+  border-width: 10px;
+  pointer-events: none;
+  content: " ";
+  transition: all 0.2s 1s ease-in-out;
+  z-index: calc(infinity) !important;
+}
+.dsIcon:hover + .dsExplainF {
+  display: block;
+}
