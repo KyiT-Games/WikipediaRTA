@@ -73,6 +73,11 @@
   left: 50%; /* 親要素の半分右にずらす */
   transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
 }
+
+#goScoreFrame .goLabelCL {
+  top: 30%;
+}
+
 #goScoreFrame::before {
   content: "";
   position: absolute;

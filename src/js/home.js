@@ -1,6 +1,6 @@
 const getrank = async (difficultly) => {
   //asyncで非同期処理だと宣言する 2個のページを得る。
-  const fetchValue = fetch(apiURL + difficultly, {
+  const fetchValue = fetch(apiURL + "/" + difficultly, {
     method: "GET",
   })
     .then((value) => {

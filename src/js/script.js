@@ -1,4 +1,10 @@
-const apiURL = "http://127.0.0.1:8000/wikirunner/";
+const apiURL = "http://127.0.0.1:8000/wikirunner";
+const WikiAPI = "https://ja.wikipedia.org/w/api.php";
+const WikiAPIR = "https://ja.wikipedia.org/api/rest_v1";
+
+// REST API Version is under developing!!!
+const UseREST = false;
+
 let difficult = 1;
 
 function getRandomInt(max) {
@@ -19,7 +25,7 @@ const sendScore = async (diff, name, score, time) => {
   //asyncで非同期処理だと宣言する 2個のページを得る。
   const fetchValue = fetch(
     apiURL +
-      "write/" +
+      "/write/" +
       diff +
       "?name=" +
       name +

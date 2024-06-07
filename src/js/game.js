@@ -19,7 +19,7 @@ const wikiFetch = async (diff) => {
       alert("wikipediaにうまくアクセスできないようです、、");
     });
 
-  const fetchValueAPI = fetch(apiURL + `getarticle/` + diff, {
+  const fetchValueAPI = fetch(apiURL + `/getarticle/` + diff, {
     method: "GET",
   })
     .then((value) => {
@@ -62,26 +62,11 @@ const wikiFetch = async (diff) => {
     return titles; //必要な情報が入っている配列を取得
   }
 };
-//articleidに指定されたウィキのページを取ってくる
-const wikiLoad = async (articleid, title) => {
+//指定されたウィキのページを取ってくる(api.php版)
+const wikiLoad = async (articleid) => {
   document.getElementById("wiki").contentWindow.location.reload(true);
 
-  //asyncで非同期処理だと宣言する
-  const fetchValue = fetch(
-    `https://ja.wikipedia.org/w/api.php?action=parse&pageid=${articleid}&format=json&origin=*`,
-    {
-      method: "GET",
-    }
-  )
-    .then((value) => {
-      //データが取得できればこっち
-      return value.json(); //wikipediaからのデータをJSON形式に変換
-    })
-    .catch(() => {
-      //取得に失敗すればこっち
-      alert("wikipediaにうまくアクセスできないようです、、");
-    });
-
+  // 記事タイトルからデータを取得(api.php)
   const fetchValuetitle = fetch(
     `https://ja.wikipedia.org/w/api.php?action=parse&page=${articleid}&format=json&origin=*`,
     {
@@ -97,13 +82,7 @@ const wikiLoad = async (articleid, title) => {
       alert("wikipediaにうまくアクセスできないようです、、");
     });
 
-  let valueJson;
-  if (title) {
-    valueJson = await fetchValue;
-  } else {
-    valueJson = await fetchValuetitle;
-  }
-
+  const valueJson = await fetchValuetitle;
   const articles = valueJson.parse.text["*"]; //取得したデータを配列に格��
 
   const wikiFrame = document.getElementById("wiki");
@@ -116,14 +95,17 @@ const wikiLoad = async (articleid, title) => {
   return articles; //必要な情報が入っている配列を取得
 };
 
+// iframe内再描画
 window.addEventListener("message", (response) => {
-  wikiLoad(decodeURI(response.data), false).then((articlehtml) => {
-    if (decodeURI(response.data) == articlesGoal[1]) {
-      endGame();
-    }
-  });
+  // ゴール検出
+  if (decodeURI(response.data) == articlesGoal[1]) {
+    endGame();
+    return 0;
+  }
+  wikiLoad(decodeURI(response.data));
 });
 
+// タイマープログラム
 const time = document.getElementById("gTimer");
 
 // 開始時間
@@ -157,6 +139,7 @@ function gTimerStop() {
   return [time.textContent, new Date(Date.now() - startTime)];
 }
 
+// ゲームスタート時に呼び出し
 function startGame() {
   displayOnOff(true);
   $("#homeframe").css("display", "none");
@@ -165,7 +148,7 @@ function startGame() {
     articlesGoal = [article[0], article[1]];
     console.log(articlesGoal);
 
-    wikiLoad(articlesGoal[0], false).then((articlehtml) => {
+    wikiLoad(articlesGoal[0]).then((articlehtml) => {
       //記事が読み込まれてから実行される。
       displayOnOff(false);
       $("#sgLabelA1").text(articlesGoal[0]);

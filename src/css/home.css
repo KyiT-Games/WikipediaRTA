@@ -229,8 +229,8 @@
   display: none;
   width: 200px;
   position: absolute;
-  top: -170px;
-  left: 50px;
+  top: -100px;
+  left: 70px;
   padding: 16px;
   border-radius: 5px;
   transition: all 0.2s 1s ease-in-out;
