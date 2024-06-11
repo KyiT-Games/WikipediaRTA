@@ -1,5 +1,8 @@
 let articlesGoal = [];
 let moveCount = 0;
+let cacheHTML = [];
+
+const cutWord = "##KUGIRIcut`}*{*{`*}##";
 
 //２個ランダムに記事データを取ってくる
 const wikiFetch = async (diff) => {
@@ -75,25 +78,44 @@ const wikiLoad = async (articleid) => {
   )
     .then((value) => {
       //データが取得できればこっち
+      console.log(value);
       return value.json(); //wikipediaからのデータをJSON形式に変換
     })
-    .catch(() => {
+    .catch((e) => {
       //取得に失敗すればこっち
       alert("wikipediaにうまくアクセスできないようです、、");
+      console.log(e);
     });
 
   const valueJson = await fetchValuetitle;
+  console.log(valueJson);
   const articles = valueJson.parse.text["*"]; //取得したデータを配列に格��
-
-  const wikiFrame = document.getElementById("wiki");
-  const target = wikiFrame.contentWindow.document.querySelector("#anker");
-  moveCount = moveCount + 1;
-  $("#gCounter").text(moveCount - 1);
-  console.log(articles);
-  target.insertAdjacentHTML("afterend", articles);
 
   return articles; //必要な情報が入っている配列を取得
 };
+
+// iframe書き換えプログラム
+function changeIframe(title, reduce = false) {
+  const wikiFrame = document.getElementById("wiki");
+  const target = wikiFrame.contentWindow.document.querySelector("#anker");
+  const cacheAbility = loadCache(title);
+  let html;
+  if (!(cacheAbility[1] == "MISS")) {
+    html = cacheAbility[0];
+  } else {
+    html = wikiLoad(title);
+    console.log("SU" + html);
+    saveCache(title, html);
+  }
+
+  if (reduce) {
+    moveCount = moveCount - 1;
+  } else {
+    moveCount = moveCount + 1;
+  }
+  $("#gCounter").text(moveCount - 1);
+  target.insertAdjacentHTML("afterend", html);
+}
 
 // iframe内再描画
 window.addEventListener("message", (response) => {
@@ -102,7 +124,7 @@ window.addEventListener("message", (response) => {
     endGame();
     return 0;
   }
-  wikiLoad(decodeURI(response.data));
+  changeIframe(decodeURI(response.data));
 });
 
 // タイマープログラム
@@ -144,26 +166,66 @@ function startGame() {
   displayOnOff(true);
   $("#homeframe").css("display", "none");
   moveCount = 0;
+  cacheHTML = [];
   wikiFetch(difficult).then((article) => {
     articlesGoal = [article[0], article[1]];
-    console.log(articlesGoal);
 
-    wikiLoad(articlesGoal[0]).then((articlehtml) => {
-      //記事が読み込まれてから実行される。
-      displayOnOff(false);
-      $("#sgLabelA1").text(articlesGoal[0]);
-      $("#sgLabelA2").text(articlesGoal[1]);
-      $("#startframe").css("display", "flex");
-      $("#gGoal").text(articlesGoal[1]);
-    });
+    changeIframe(articlesGoal[0]);
+    //記事が読み込まれてから実行される。
+    displayOnOff(false);
+    $("#sgLabelA1").text(articlesGoal[0]);
+    $("#sgLabelA2").text(articlesGoal[1]);
+    $("#startframe").css("display", "flex");
+    $("#gGoal").text(articlesGoal[1]);
   });
   saveDifficult(difficult);
 }
 
+//キャッシュ系
+function saveCache(title, html) {
+  const date = Date.now();
+  localStorage.setItem(title, html + cutWord + date);
+}
+
+function loadCache(title) {
+  const rawdata = localStorage.getItem(title);
+
+  let status;
+  if (rawdata == null) {
+    status = "MISS";
+    return [null, status];
+  }
+
+  const data = rawdata.split(cutWord);
+  const differeceDate = (Date.now() - data[1]) / 86400000;
+  status = "HIT";
+  if (differeceDate > 10) {
+    status = "EXPIRED";
+  }
+
+  return [data[0], status];
+}
+
+//ボタン系
 $("#sgBtn").click(function () {
   $("#startframe").css("display", "none");
   $("#gameframe").css("display", "flex");
   $("#wikiframe").css("display", "block");
   $("#dataframe").css("display", "block");
   gTimerStart();
+});
+
+$("#gExitframe").click(function () {
+  moveHome();
+  gTimerStop();
+});
+
+$("#gExitframe").click(function () {
+  moveHome();
+  gTimerStop();
+});
+
+$("#gBackframe").click(function () {
+  moveHome();
+  gTimerStop();
 });
