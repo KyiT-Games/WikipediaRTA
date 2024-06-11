@@ -67,8 +67,6 @@ const wikiFetch = async (diff) => {
 };
 //指定されたウィキのページを取ってくる(api.php版)
 const wikiLoad = async (articleid) => {
-  document.getElementById("wiki").contentWindow.location.reload(true);
-
   // 記事タイトルからデータを取得(api.php)
   const fetchValuetitle = fetch(
     `https://ja.wikipedia.org/w/api.php?action=parse&page=${articleid}&format=json&origin=*`,
@@ -84,7 +82,6 @@ const wikiLoad = async (articleid) => {
     .catch((e) => {
       //取得に失敗すればこっち
       alert("wikipediaにうまくアクセスできないようです、、");
-      console.log(e);
     });
 
   const valueJson = await fetchValuetitle;
@@ -96,25 +93,32 @@ const wikiLoad = async (articleid) => {
 
 // iframe書き換えプログラム
 function changeIframe(title, reduce = false) {
-  const wikiFrame = document.getElementById("wiki");
-  const target = wikiFrame.contentWindow.document.querySelector("#anker");
-  const cacheAbility = loadCache(title);
-  let html;
-  if (!(cacheAbility[1] == "MISS")) {
-    html = cacheAbility[0];
-  } else {
-    html = wikiLoad(title);
-    console.log("SU" + html);
-    saveCache(title, html);
-  }
-
+  document.getElementById("wiki").contentWindow.location.reload(true);
+  // カウンター制御
   if (reduce) {
     moveCount = moveCount - 1;
   } else {
     moveCount = moveCount + 1;
   }
   $("#gCounter").text(moveCount - 1);
-  target.insertAdjacentHTML("afterend", html);
+
+  const wikiFrame = document.getElementById("wiki");
+  const target = wikiFrame.contentWindow.document.querySelector("#anker");
+  const cacheAbility = loadCache(title);
+  let html;
+  if (!(cacheAbility[1] == "MISS")) {
+    html = cacheAbility[0];
+    target.insertAdjacentHTML("afterend", html);
+    return 0;
+  } else {
+    wikiLoad(title).then((htmlL) => {
+      html = htmlL;
+      console.log("SU" + html);
+      saveCache(title, html);
+      target.insertAdjacentHTML("afterend", html);
+      return 0;
+    });
+  }
 }
 
 // iframe内再描画
