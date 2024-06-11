@@ -67,3 +67,33 @@ body {
   left: 50%; /* 親要素の半分右にずらす */
   transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
 }
+
+.popup {
+  display: flex;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+}
+.content {
+  background: #fff;
+  padding: 30px;
+  width: 700px;
+  height: 520px;
+  border-radius: 50px 50px 50px 50px;
+  position: relative;
+}
+
+#cBtn {
+  position: absolute; /* 位置指定 */
+  top: 85%; /* 親要素の半分下にずらす */
+  left: 50%; /* 親要素の半分右にずらす */
+  transform: translateY(-50%) translateX(-50%); /* 要素自体の半分、上と左にずらす */
+
+  width: 20vw;
+  height: auto;
+}
