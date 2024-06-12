@@ -2,14 +2,6 @@ let articlesGoal = [];
 let moveCount = 0;
 let cacheHTML = [];
 
-const Loading = `
-  <div class="loading">
-    <div class="loading-inner">
-      <div class="loading-text">
-        <p>読み込み中</p>
-      </div>
-    </div>`;
-
 const cutWord = "##KUGIRIcut`}*{*{`*}##";
 
 //２個ランダムに記事データを取ってくる
@@ -109,16 +101,11 @@ function changeIframe(title, reduce = false) {
   $("#gCounter").text(moveCount - 1);
 
   const cacheAbility = loadCache(title);
-  let html;
   if (cacheAbility[1] == "HIT") {
-    html = cacheAbility[0];
-    console.log("writeIframeに渡された" + html);
-    writeIframe(html);
+    writeIframe(cacheAbility[0]);
   } else {
-    wikiLoad(title).then((htmlL) => {
-      html = htmlL;
+    wikiLoad(title).then((html) => {
       saveCache(title, html);
-      console.log("writeIframeに渡された" + html);
       writeIframe(html);
     });
   }
@@ -253,6 +240,5 @@ $("#gExitframe").click(function () {
 });
 
 $("#gBackframe").click(function () {
-  moveHome();
   gTimerStop();
 });
