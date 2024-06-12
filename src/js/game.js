@@ -2,6 +2,14 @@ let articlesGoal = [];
 let moveCount = 0;
 let cacheHTML = [];
 
+const Loading = `
+  <div class="loading">
+    <div class="loading-inner">
+      <div class="loading-text">
+        <p>読み込み中</p>
+      </div>
+    </div>`;
+
 const cutWord = "##KUGIRIcut`}*{*{`*}##";
 
 //２個ランダムに記事データを取ってくる
@@ -85,7 +93,6 @@ const wikiLoad = async (articleid) => {
     });
 
   const valueJson = await fetchValuetitle;
-  console.log(valueJson);
   const articles = valueJson.parse.text["*"]; //取得したデータを配列に格��
 
   return articles; //必要な情報が入っている配列を取得
@@ -93,7 +100,6 @@ const wikiLoad = async (articleid) => {
 
 // iframe書き換えプログラム
 function changeIframe(title, reduce = false) {
-  document.getElementById("wiki").contentWindow.location.reload(true);
   // カウンター制御
   if (reduce) {
     moveCount = moveCount - 1;
@@ -102,23 +108,40 @@ function changeIframe(title, reduce = false) {
   }
   $("#gCounter").text(moveCount - 1);
 
-  const wikiFrame = document.getElementById("wiki");
-  const target = wikiFrame.contentWindow.document.querySelector("#anker");
   const cacheAbility = loadCache(title);
   let html;
-  if (!(cacheAbility[1] == "MISS")) {
+  if (cacheAbility[1] == "HIT") {
     html = cacheAbility[0];
-    target.insertAdjacentHTML("afterend", html);
-    return 0;
+    console.log("writeIframeに渡された" + html);
+    writeIframe(html);
   } else {
     wikiLoad(title).then((htmlL) => {
       html = htmlL;
-      console.log("SU" + html);
       saveCache(title, html);
-      target.insertAdjacentHTML("afterend", html);
-      return 0;
+      console.log("writeIframeに渡された" + html);
+      writeIframe(html);
     });
   }
+}
+
+function writeIframe(html) {
+  const wikiDiv = document
+    .getElementById("wiki")
+    .contentWindow.document.getElementsByClassName("mw-content-ltr")
+    .item(0);
+  if (!(wikiDiv == null)) {
+    wikiDiv.remove();
+  }
+
+  const wikiFrame = document.getElementById("wiki");
+  const target = wikiFrame.contentWindow.document.querySelector("#anker");
+  document.getElementById("wiki").contentWindow.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
+
+  target.insertAdjacentHTML("afterend", html);
+  console.log(html);
 }
 
 // iframe内再描画
