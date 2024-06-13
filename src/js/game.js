@@ -7,6 +7,8 @@ const db = new Dexie("HTMLCache");
 db.version(1).stores({
   cacheHTML: "title,html,date",
 });
+//キャシュの清掃 (x) x日間経ったらキャッシュクリア
+cleanCache(10);
 
 //２個ランダムに記事データを取ってくる
 const wikiFetch = async (diff) => {
@@ -224,20 +226,20 @@ const loadCache = async (title) => {
   }
 
   const data = dbData.html;
-  const differeceDate = (Date.now() - dbData.date) / 86400000;
+
   status = "HIT";
-  if (differeceDate > 10) {
-    status = "EXPIRED";
-  }
   return [data, status];
 };
 
-const cleanCache = async () => {
+const cleanCache = async (days) => {
   console.log("Cleaning cache");
-  db.cacheHTMLdb.notes.toArray().then(function (notes) {
+  db.cacheHTML.toArray().then(function (notes) {
     console.log(notes);
     for (let value of notes) {
-      value.date;
+      const differeceDate = (Date.now() - value.date) / 86400000;
+      if (differeceDate > days) {
+        db.cacheHTML.delete(value.title);
+      }
     }
   });
 };
