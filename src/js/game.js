@@ -2,7 +2,11 @@ let articlesGoal = [];
 let moveCount = 0;
 let Log = [];
 
-const cutWord = "##KUGIRIcut`}*{*{`*}##";
+//　キャッシュ用DB
+const db = new Dexie("HTMLCache");
+db.version(1).stores({
+  cacheHTML: "title,html,date",
+});
 
 //２個ランダムに記事データを取ってくる
 const wikiFetch = async (diff) => {
@@ -41,7 +45,6 @@ const wikiFetch = async (diff) => {
       valueJson.query.pages[articles[0]].title,
       valueJson.query.pages[articles[1]].title,
     ];
-    console.log(titles);
     return titles; //必要な情報が入っている配列を取得
   } else {
     const valueJson = await fetchValueAPI; //非同期処理を実行
@@ -68,6 +71,7 @@ const wikiFetch = async (diff) => {
 
 //指定されたウィキのページを取ってくる(api.php版)
 const wikiLoad = async (articleid) => {
+  console.log("wikiLoad Runned");
   // 記事タイトルからデータを取得(api.php)
   const fetchValuetitle = fetch(
     `https://ja.wikipedia.org/w/api.php?action=parse&page=${articleid}&format=json&origin=*`,
@@ -100,19 +104,20 @@ function changeIframe(title, reduce = false) {
   }
   $("#gCounter").text(moveCount - 1);
   Log[moveCount - 1] = title;
-  const cacheAbility = loadCache(title);
-  if (cacheAbility[1] == "HIT") {
-    writeIframe(cacheAbility[0]);
-  } else {
-    wikiLoad(title).then((html) => {
-      try {
-        saveCache(title, html);
-      } catch (error) {
-        console.log(error);
-      }
-      writeIframe(html);
-    });
-  }
+  loadCache(title).then((cacheAbility) => {
+    if (cacheAbility[1] == "HIT") {
+      writeIframe(cacheAbility[0]);
+    } else {
+      wikiLoad(title).then((html) => {
+        try {
+          saveCache(title, html);
+        } catch (error) {
+          console.log("An error happened at ChangeIframe " + error);
+        }
+        writeIframe(html);
+      });
+    }
+  });
 }
 
 function writeIframe(html) {
@@ -132,7 +137,7 @@ function writeIframe(html) {
   });
 
   target.insertAdjacentHTML("afterend", html);
-  console.log(html);
+  console.log("wikiIframe runned");
 }
 
 // iframe内再描画
@@ -199,30 +204,43 @@ function startGame() {
   saveDifficult(difficult);
 }
 
-//キャッシュ系
+//キャッシュDB系実処理
 function saveCache(title, html) {
   const date = Date.now();
-  localStorage.setItem(title, html + cutWord + date);
+  db.cacheHTML.put({
+    title: title,
+    html: html,
+    date: date,
+  });
 }
 
-function loadCache(title) {
-  const rawdata = localStorage.getItem(title);
-
+const loadCache = async (title) => {
+  console.log("Loading cache");
+  const dbData = await db.cacheHTML.get(title);
   let status;
-  if (rawdata == null) {
+  if (dbData == undefined) {
     status = "MISS";
     return [null, status];
   }
 
-  const data = rawdata.split(cutWord);
-  const differeceDate = (Date.now() - data[1]) / 86400000;
+  const data = dbData.html;
+  const differeceDate = (Date.now() - dbData.date) / 86400000;
   status = "HIT";
   if (differeceDate > 10) {
     status = "EXPIRED";
   }
+  return [data, status];
+};
 
-  return [data[0], status];
-}
+const cleanCache = async () => {
+  console.log("Cleaning cache");
+  db.cacheHTMLdb.notes.toArray().then(function (notes) {
+    console.log(notes);
+    for (let value of notes) {
+      value.date;
+    }
+  });
+};
 
 //ボタン系
 $("#sgBtn").click(function () {
