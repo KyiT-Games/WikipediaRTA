@@ -2,12 +2,6 @@ let articlesGoal = [];
 let moveCount = 0;
 let Log = [];
 
-//　キャッシュ用DB
-const db = new Dexie("HTMLCache");
-db.version(1).stores({
-  cacheHTML: "++id,title,html,date",
-});
-
 const cutWord = "##KUGIRIcut`}*{*{`*}##";
 
 //２個ランダムに記事データを取ってくる
@@ -71,6 +65,7 @@ const wikiFetch = async (diff) => {
     return titles; //必要な情報が入っている配列を取得
   }
 };
+
 //指定されたウィキのページを取ってくる(api.php版)
 const wikiLoad = async (articleid) => {
   // 記事タイトルからデータを取得(api.php)
@@ -82,10 +77,9 @@ const wikiLoad = async (articleid) => {
   )
     .then((value) => {
       //データが取得できればこっち
-      console.log(value);
       return value.json(); //wikipediaからのデータをJSON形式に変換
     })
-    .catch((e) => {
+    .catch(() => {
       //取得に失敗すればこっち
       alert("wikipediaにうまくアクセスできないようです、、");
     });
@@ -209,11 +203,6 @@ function startGame() {
 function saveCache(title, html) {
   const date = Date.now();
   localStorage.setItem(title, html + cutWord + date);
-  db.cacheHTML.add({
-    title: title,
-    html: html,
-    date: date,
-  });
 }
 
 function loadCache(title) {

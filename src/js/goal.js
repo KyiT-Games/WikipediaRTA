@@ -10,7 +10,7 @@ function endGame() {
 
   $("#goTime").text(timeEnd[0]);
   $("#goCounter").text(moveCount - 1);
-  score = Math.round(10000000 / (timesec * 0.1 + (moveCount - 1) * 10));
+  score = Math.round(100 * Math.sqrt(timesec * 0.1 + (moveCount - 1) * 10));
   $("#goScore").text(score);
 }
 
