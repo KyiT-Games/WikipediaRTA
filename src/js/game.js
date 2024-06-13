@@ -1,6 +1,12 @@
 let articlesGoal = [];
 let moveCount = 0;
-let cacheHTML = [];
+let Log = [];
+
+//　キャッシュ用DB
+const db = new Dexie("HTMLCache");
+db.version(1).stores({
+  cacheHTML: "++id,title,html,date",
+});
 
 const cutWord = "##KUGIRIcut`}*{*{`*}##";
 
@@ -99,13 +105,17 @@ function changeIframe(title, reduce = false) {
     moveCount = moveCount + 1;
   }
   $("#gCounter").text(moveCount - 1);
-
+  Log[moveCount - 1] = title;
   const cacheAbility = loadCache(title);
   if (cacheAbility[1] == "HIT") {
     writeIframe(cacheAbility[0]);
   } else {
     wikiLoad(title).then((html) => {
-      saveCache(title, html);
+      try {
+        saveCache(title, html);
+      } catch (error) {
+        console.log(error);
+      }
       writeIframe(html);
     });
   }
@@ -180,7 +190,7 @@ function startGame() {
   displayOnOff(true);
   $("#homeframe").css("display", "none");
   moveCount = 0;
-  cacheHTML = [];
+  Log = [];
   wikiFetch(difficult).then((article) => {
     articlesGoal = [article[0], article[1]];
 
@@ -199,6 +209,11 @@ function startGame() {
 function saveCache(title, html) {
   const date = Date.now();
   localStorage.setItem(title, html + cutWord + date);
+  db.cacheHTML.add({
+    title: title,
+    html: html,
+    date: date,
+  });
 }
 
 function loadCache(title) {
@@ -240,5 +255,7 @@ $("#gExitframe").click(function () {
 });
 
 $("#gBackframe").click(function () {
-  gTimerStop();
+  if (moveCount > 1) {
+    changeIframe(Log[moveCount - 2], true);
+  }
 });
