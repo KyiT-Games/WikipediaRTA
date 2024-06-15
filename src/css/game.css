@@ -174,7 +174,6 @@
 
 #sgBox {
   position: absolute;
-
   top: 25%;
   left: 50%;
   transform: translateY(-50%) translateX(-50%);
@@ -183,4 +182,19 @@
   height: 40%;
   background-color: #fff;
   border-radius: 50px 50px 50px 50px;
+}
+
+#wikiHiddenframe {
+  height: 95%;
+  width: calc(100% - clamp(15px, 30%, 300px));
+  background-color: #fff;
+  position: relative;
+}
+#whLoading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateY(-50%) translateX(-50%);
+  font-size: clamp(15px, 2.5vw, 25px);
+  color: #000;
 }

@@ -99,6 +99,8 @@ const wikiLoad = async (articleid) => {
 
 // iframe書き換えプログラム
 function changeIframe(title, reduce = false) {
+  $("#wikiHiddenframe").css("display", "block");
+  $("#wikiframe").css("display", "none");
   // カウンター制御
   if (reduce) {
     moveCount = moveCount - 1;
@@ -140,6 +142,8 @@ function writeIframe(html) {
   });
 
   target.insertAdjacentHTML("afterend", html);
+  $("#wikiHiddenframe").css("display", "none");
+  $("#wikiframe").css("display", "block");
   console.log("wikiIframe runned");
 }
 
