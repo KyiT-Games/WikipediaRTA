@@ -24,6 +24,7 @@ function moveHome() {
   $("#cookieframe").css("display", "none");
   $("#goalframe").css("display", "none");
   $("#homeframe").css("display", "block");
+  $("body").css("background-image", 'url("img/bg.png")');
 
   difficult = -1;
   const difficultTmp = loadDifficult();

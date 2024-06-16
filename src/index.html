@@ -16,7 +16,7 @@
   </head>
   <body>
     <div id="titleframe" style="display: block">
-      <img src="img/wikirunner3.png" id="tLogo" />
+      <img src="img/ROGO.png" id="tLogo" />
       <button id="tBtn" class="btn">START</button>
       <a href="https://www.kyitgames.com/" target="_blank"
         ><img src="img/kLogo.png" id="tkLogo"
@@ -173,20 +173,19 @@
           <p class="gcLabel">ゴール</p>
           <p id="gGoal" class="gcLabelB">NaN</p>
         </div>
-        <div id="gLogframe" class="game dataF">
-          <p class="gcLabel">履歴</p>
-          <p id="gGoal" class="gcLabelB">NaN</p>
+        <div id="gCurrentframe" class="game dataF">
+          <p class="gcLabel">現在のページ　クリックしてコピー</p>
+          <p id="gCurrent" class="gcLabelB">NaN</p>
+        </div>
+        <div id="gAdframe" class="game dataF">
+          <p class="gcLabel">AD</p>
         </div>
       </div>
-      <div id="wikiframe" class="game" style="display: block">
+      <div id="wikiframe" class="game" style="display: none">
         <iframe src="wiki.html" id="wiki" frameborder="0"></iframe>
       </div>
-      <div id="wikiHiddenframe" class="game" style="display: none">
+      <div id="wikiHiddenframe" class="game" style="display: block">
         <p id="whLoading">LOADING</p>
-      </div>
-
-      <div id="exitFrame" class="game" style="display: none">
-        <iframe src="wiki.html" id="wiki" frameborder="0"></iframe>
       </div>
     </div>
 

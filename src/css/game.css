@@ -76,9 +76,24 @@
   white-space: initial;
 }
 
-#gLogframe {
+#gCurrentframe {
   width: 100%;
-  height: 58.5%;
+  height: 10%;
+  background-color: #fff;
+}
+#gCurrentframeL {
+  font-size: clamp(0.33px, 1vw, 10px);
+  margin-top: -1.1%;
+}
+#gCurrentframe:hover {
+  transition: 0.2s;
+  border-radius: 10px;
+  background-color: #d3d3d3;
+}
+
+#gAdframe {
+  width: 100%;
+  height: 48.5%;
   background-color: #fff;
 }
 

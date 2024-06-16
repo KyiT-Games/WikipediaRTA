@@ -11,7 +11,7 @@
   position: absolute; /* 位置指定 */
   top: 10%; /* 親要素の半分下にずらす */
   left: 50%; /* 親要素の半分右にずらす */
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   width: 45%;
   height: 80%;
   border-radius: 50px 50px 50px 50px;
@@ -21,8 +21,6 @@
   position: relative;
   height: 100%;
   width: 100%;
-
-  background-color: #c9c9c9;
 }
 
 #hBtn {
@@ -124,7 +122,7 @@
   top: 25%; /* 親要素の半分下にずらす */
   left: 5%; /* 親要素の半分右にずらす */
 
-  background-color: #fff;
+  background-color: rgba(255, 255, 255, 0.8);
   border-radius: 50px;
   width: 40%;
   height: 60%;

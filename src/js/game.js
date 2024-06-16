@@ -111,7 +111,7 @@ function changeIframe(title, reduce = false) {
   Log[moveCount - 1] = title;
   loadCache(title).then((cacheAbility) => {
     if (cacheAbility[1] == "HIT") {
-      writeIframe(cacheAbility[0]);
+      writeIframe(cacheAbility[0], title);
     } else {
       wikiLoad(title).then((html) => {
         try {
@@ -119,13 +119,13 @@ function changeIframe(title, reduce = false) {
         } catch (error) {
           console.log("An error happened at ChangeIframe " + error);
         }
-        writeIframe(html);
+        writeIframe(html, title);
       });
     }
   });
 }
 
-function writeIframe(html) {
+function writeIframe(html, title) {
   const wikiDiv = document
     .getElementById("wiki")
     .contentWindow.document.getElementsByClassName("mw-content-ltr")
@@ -142,11 +142,17 @@ function writeIframe(html) {
   });
 
   target.insertAdjacentHTML("afterend", html);
+
+  $("#gCurrent").text(title);
   $("#wikiHiddenframe").css("display", "none");
   $("#wikiframe").css("display", "block");
   console.log("wikiIframe runned");
 }
 
+//コピーボタン押下時動作
+$("#gCurrentframe").click(function () {
+  navigator.clipboard.writeText(WikiURL + "/" + Log[moveCount - 1]);
+});
 // iframe内再描画
 window.addEventListener("message", (response) => {
   // ゴール検出
@@ -253,7 +259,6 @@ const cleanCache = async () => {
 $("#sgBtn").click(function () {
   $("#startframe").css("display", "none");
   $("#gameframe").css("display", "flex");
-  $("#wikiframe").css("display", "block");
   $("#dataframe").css("display", "block");
   gTimerStart();
 });

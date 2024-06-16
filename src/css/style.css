@@ -28,6 +28,10 @@ body {
     "Hiragino Mincho ProN W3", "ヒラギノ明朝 ProN W3", "Hiragino Mincho ProN",
     "HG明朝E", "ＭＳ Ｐ明朝", "ＭＳ 明朝", serif !important;
   font-size: 105%;
+  background-image: url("../img/A-0.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .btn {

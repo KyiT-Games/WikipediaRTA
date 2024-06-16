@@ -1,6 +1,6 @@
 const apiURL = "http://127.0.0.1:8000/wikirunner";
 const WikiAPI = "https://ja.wikipedia.org/w/api.php";
-const WikiAPIR = "https://ja.wikipedia.org/api/rest_v1";
+const WikiURL = "https://ja.wikipedia.org/wiki";
 
 // REST API Version is under developing!!!
 const UseREST = false;
